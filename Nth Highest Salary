@@ -1,0 +1,15 @@
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+
+BEGIN
+set N = N-1;
+  RETURN (
+      Select 
+      case when salary is null then null
+      else salary
+      end 
+      from Employee 
+      Order by salary desc
+      limit 1 offset N
+      
+  );
+END
