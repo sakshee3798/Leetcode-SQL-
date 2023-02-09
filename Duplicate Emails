@@ -1,0 +1,4 @@
+SELECT email as Email
+FROM person as p
+group by  p.email
+having count(*) >1;
