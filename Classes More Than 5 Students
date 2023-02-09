@@ -1,0 +1,9 @@
+With cte as(
+    select class, count(distinct student) as no
+    from courses 
+    group by class
+)
+
+select class
+from cte
+where no >= 5;
