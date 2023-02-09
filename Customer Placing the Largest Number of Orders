@@ -1,0 +1,6 @@
+with cte as(
+    select o.*, row_number() over (partition by customer_number order by order_number) as seq_num 
+    From orders as o
+)
+Select customer_number from cte
+where seq_num >1
