@@ -1,0 +1,8 @@
+Select p.firstName, p.lastName, a.city, a.state
+From person p 
+Left Join Address a on p.personID = a.personID
+Order By
+(Case 
+    When p.personID is null Then a.city = 'Null' and a.state = 'Null'
+    Else a.city and a.state
+End)
