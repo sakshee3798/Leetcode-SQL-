@@ -1,0 +1,8 @@
+select sp.name
+from salesperson sp
+where sp.sales_id Not in (
+    select o.sales_id
+    from orders o
+    left join company co on o.com_id = co.com_id
+    Where co.name = 'RED'
+);
