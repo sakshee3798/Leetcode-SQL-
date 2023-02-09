@@ -3,7 +3,7 @@ CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
 BEGIN
 set N = N-1;
   RETURN (
-      Select 
+      Select distinct
       case when salary is null then null
       else salary
       end 
